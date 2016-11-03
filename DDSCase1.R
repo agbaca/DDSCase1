@@ -74,12 +74,21 @@ sorttest<-educgdp[order(educgdp$Ranking,decreasing=TRUE),]
 head(sorttest,5)
 sort1<-read.csv("C:\\Users\\adamg_000\\OneDrive\\Public\\Doing Data Science\\Case1\\sorted.csv",header=TRUE)
 head(sort1,5)
-<<<<<<< HEAD
 summary(sort1$Income.Group)
-
-=======
 HighOECD<-sort1[grep("High income: OECD",sort1$Income.Group),]
 HighnonOECD<-sort1[grep("High income: nonOECD",sort1$Income.Group),]
 HighOECD2<-HighOECD[c(32:35)]
 HighnonOECD2<-HighnonOECD[c(32:35)]
->>>>>>> origin/master
+#####Incorporate this into HW to get means
+HO1<-as.numeric(gsub(",","",HighOECD2$MillionsUSD))
+mean(HO1)
+HOn1<-as.numeric(gsub(",","",HighnonOECD2$MillionsUSD))
+mean(HOn1,na.rm=TRUE)
+####For Plot and table and quantiles
+sortGDP<-sort1[c(32,33,4,35)]
+head(sortGDP)
+ICLabels<-c("High income: OECD","High income: nonOECD","Upper Middle Income","Lower Middle Income","Low income")
+sortGDP$Ranking<-factor(sortGDP$Ranking,labels=ICLabels)
+####
+
+
