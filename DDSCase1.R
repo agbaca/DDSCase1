@@ -46,6 +46,27 @@ HighOECD<-sort1[grep("High income: OECD",sort1$Income.Group),]
 HighnonOECD<-sort1[grep("High income: nonOECD",sort1$Income.Group),]
 HighOECD2<-HighOECD[c(32:35)]
 HighnonOECD2<-HighnonOECD[c(32:35)]
+#####Got means for specified income groups
+HO1<-as.numeric(gsub(",","",HighOECD2$MillionsUSD))
+mean(HO1)
+HOn1<-as.numeric(gsub(",","",HighnonOECD2$MillionsUSD))
+mean(HOn1,na.rm=TRUE)
+####MAde a reduced data frame
+sortGDP<-sort1[c(32,33,4,35)]
+head(sortGDP)
+##Code for the quantiles that I ran out of time for
+ICLabels<-c("High income: OECD","High income: nonOECD","Upper Middle Income","Lower Middle Income","Low income")
+sortGDP$Ranking<-factor(sortGDP$Ranking,labels=ICLabels)
+####Subset for the highest 38 GDP nations
+SGDP38<-sortGDP[153:190,]
+head(SGDP38,38)
+##Ordered them by Income Group for ease
+IGDP38<-SGDP38[order(SGDP38$Income.Group),]
+IGDP38
+#Loaded data.table library to coerce data into table
+library(data.table)
+data.table(IGDP38)
+plot(sortGDP$Short.Name,sortGDP$Ranking)
 ####################################
 ######To ReRun the original code without rewriting csv files
 ####################################
@@ -79,16 +100,26 @@ HighOECD<-sort1[grep("High income: OECD",sort1$Income.Group),]
 HighnonOECD<-sort1[grep("High income: nonOECD",sort1$Income.Group),]
 HighOECD2<-HighOECD[c(32:35)]
 HighnonOECD2<-HighnonOECD[c(32:35)]
-#####Incorporate this into HW to get means
+#####Got means for specified income groups
 HO1<-as.numeric(gsub(",","",HighOECD2$MillionsUSD))
 mean(HO1)
 HOn1<-as.numeric(gsub(",","",HighnonOECD2$MillionsUSD))
 mean(HOn1,na.rm=TRUE)
-####For Plot and table and quantiles
+####MAde a reduced data frame
 sortGDP<-sort1[c(32,33,4,35)]
 head(sortGDP)
+##Code for the quantiles that I ran out of time for
 ICLabels<-c("High income: OECD","High income: nonOECD","Upper Middle Income","Lower Middle Income","Low income")
 sortGDP$Ranking<-factor(sortGDP$Ranking,labels=ICLabels)
-####
+####Subset for the highest 38 GDP nations
+SGDP38<-sortGDP[153:190,]
+head(SGDP38,38)
+##Ordered them by Income Group for ease
+IGDP38<-SGDP38[order(SGDP38$Income.Group),]
+IGDP38
+#Loaded data.table library to coerce data into table
+library(data.table)
+data.table(IGDP38)
+plot(sortGDP$Short.Name,sortGDP$Ranking)
 
 
