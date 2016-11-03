@@ -42,6 +42,10 @@ write.csv(sorttest,file="sorted.csv")
 #read new dataset
 sort1<-read.csv("C:\\Users\\adamg_000\\OneDrive\\Public\\Doing Data Science\\Case1\\sorted.csv",header=TRUE)
 head(sort1,5)
+HighOECD<-sort1[grep("High income: OECD",sort1$Income.Group),]
+HighnonOECD<-sort1[grep("High income: nonOECD",sort1$Income.Group),]
+HighOECD2<-HighOECD[c(32:35)]
+HighnonOECD2<-HighnonOECD[c(32:35)]
 ####################################
 ######To ReRun the original code without rewriting csv files
 ####################################
@@ -70,5 +74,12 @@ sorttest<-educgdp[order(educgdp$Ranking,decreasing=TRUE),]
 head(sorttest,5)
 sort1<-read.csv("C:\\Users\\adamg_000\\OneDrive\\Public\\Doing Data Science\\Case1\\sorted.csv",header=TRUE)
 head(sort1,5)
+<<<<<<< HEAD
 summary(sort1$Income.Group)
 
+=======
+HighOECD<-sort1[grep("High income: OECD",sort1$Income.Group),]
+HighnonOECD<-sort1[grep("High income: nonOECD",sort1$Income.Group),]
+HighOECD2<-HighOECD[c(32:35)]
+HighnonOECD2<-HighnonOECD[c(32:35)]
+>>>>>>> origin/master
