@@ -70,3 +70,5 @@ sorttest<-educgdp[order(educgdp$Ranking,decreasing=TRUE),]
 head(sorttest,5)
 sort1<-read.csv("C:\\Users\\adamg_000\\OneDrive\\Public\\Doing Data Science\\Case1\\sorted.csv",header=TRUE)
 head(sort1,5)
+summary(sort1$Income.Group)
+
